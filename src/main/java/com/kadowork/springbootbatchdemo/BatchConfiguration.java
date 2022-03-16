@@ -18,12 +18,15 @@ import org.springframework.core.io.*;
 public class BatchConfiguration {
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
+    private final TaskletStep1Helper taskletStep1Helper;
+    private final TaskletStep2Helper taskletStep2Helper;
 
+    // chunk
     @Bean
-    public Job job() {
-        log.info("Job !!");
+    public Job chunkJob() {
+        log.info("ChunkJob !!");
         return jobBuilderFactory
-                .get("testJob")
+                .get("chunkJob")
                 .incrementer(new RunIdIncrementer())
                 .start(chunkStep())
                 .build();
@@ -31,7 +34,7 @@ public class BatchConfiguration {
 
     @Bean
     public Step chunkStep() {
-        log.info("Chunk !!");
+        log.info("ChunkStep !!");
         return stepBuilderFactory.get("step1")
                                  .<BeforeUser, AfterUser>chunk(10)
                                  .reader(chunkReader())
@@ -64,5 +67,31 @@ public class BatchConfiguration {
     public UserItemWriter chunkWriter() {
         log.info("ChunkWriter !!");
         return new UserItemWriter();
+    }
+
+    // tasklet
+    @Bean
+    public Job taskletJob() {
+        log.info("TaskletJob !!");
+        return jobBuilderFactory
+                .get("taskletJob")
+                .incrementer(new RunIdIncrementer())
+                .start(taskletStep1())
+                .next(taskletStep2())
+                .build();
+    }
+
+    @Bean
+    public Step taskletStep1() {
+        return stepBuilderFactory.get("taskletStep1")
+                                 .tasklet(taskletStep1Helper)
+                                 .build();
+    }
+
+    @Bean
+    public Step taskletStep2() {
+        return stepBuilderFactory.get("taskletStep2")
+                                 .tasklet(taskletStep2Helper)
+                                 .build();
     }
 }

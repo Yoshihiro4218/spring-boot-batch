@@ -7,18 +7,23 @@ CREATE TABLE before_user
 
 INSERT IGNORE INTO before_user
 SET id         = 1,
-    first_name = 'タロウ',
-    last_name  = 'フクギン';
+    first_name = 'スズハ',
+    last_name  = 'アマネ';
 
 INSERT IGNORE INTO before_user
 SET id         = 2,
-    first_name = 'タロウ',
-    last_name  = 'シンワギン';
+    first_name = 'モエカ',
+    last_name  = 'キリュウ';
 
 INSERT IGNORE INTO before_user
 SET id         = 3,
-    first_name = 'タロウ',
-    last_name  = 'クマギン';
+    first_name = 'ルカ',
+    last_name  = 'ウルシバラ';
+
+INSERT IGNORE INTO before_user
+SET id         = 4,
+    first_name = 'ルミホ',
+    last_name  = 'アキハ';
 
 CREATE TABLE after_user
 (

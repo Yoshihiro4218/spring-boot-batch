@@ -11,8 +11,9 @@ import java.util.*;
 public class BeforeUserRepository {
     private final JdbcTemplate jdbcTemplate;
 
+    private static final RowMapper<BeforeUser> MAPPER = new BeanPropertyRowMapper<>(BeforeUser.class);
+
     public List<BeforeUser> selectAll() {
-        return jdbcTemplate.queryForList(
-                "SELECT * FROM before_user;", BeforeUser.class);
+        return jdbcTemplate.query("SELECT * FROM before_user;", MAPPER);
     }
 }
