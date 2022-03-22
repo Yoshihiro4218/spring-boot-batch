@@ -31,6 +31,7 @@
 >(引用: https://tech-lab.sios.jp/archives/11402)
 
 ![1](./img/1.png)
+
 (引用: https://tech-lab.sios.jp/archives/11402)
 
 
@@ -80,7 +81,6 @@
     * 特に制御をしなければ Tasklet のクラスを抜けたあとにコミット(一括コミット方式)
     * 制御をする場合はトランザクション制御を自前ですること(中間コミット方式)
     * その際 `@Transactional(propagation = Propagation.REQUIRES_NEW)` となるので注意
-    * 
 * Tasklet のクラス内では自由に処理を記述できる
 
 ```java
