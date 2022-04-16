@@ -1,0 +1,25 @@
+CREATE TABLE address
+(
+    id            INT(9) PRIMARY KEY,
+    prefCd        VARCHAR(256),
+    cityCd        VARCHAR(256),
+    townCd        VARCHAR(256),
+    zip           VARCHAR(256),
+    officeFlg     TINYINT,
+    deleteFlg     TINYINT,
+    prefName      VARCHAR(256),
+    prefKana      VARCHAR(256),
+    cityName      VARCHAR(256),
+    cityKana      VARCHAR(256),
+    townName      VARCHAR(256),
+    townKana      VARCHAR(256),
+    townMemo      VARCHAR(256),
+    kyotoStreet   VARCHAR(256),
+    azaName       VARCHAR(256),
+    azaKana       VARCHAR(256),
+    memo          VARCHAR(256),
+    officeName    VARCHAR(256),
+    officeKana    VARCHAR(256),
+    officeAddress VARCHAR(256),
+    newId         VARCHAR(256)
+);
