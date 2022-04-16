@@ -66,13 +66,11 @@ public class AddressBatchConfiguration {
 
     @Bean
     public AddressItemProcessor addressChunkProcessor() {
-        log.info("====== Address Item Process ======");
         return new AddressItemProcessor();
     }
 
     @Bean
     public AddressItemWriter addressChunkWriter() {
-        log.info("====== Write Address ======");
         return new AddressItemWriter();
     }
 }
