@@ -18,6 +18,8 @@ import org.springframework.core.io.*;
 public class AddressBatchConfiguration {
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
+    private final AddressTaskletHelper addressTaskletHelper;
+
     private static final String CSV_FILE_PATH = "zenkoku.csv";
 
     // chunk
@@ -73,4 +75,21 @@ public class AddressBatchConfiguration {
     public AddressItemWriter addressChunkWriter() {
         return new AddressItemWriter();
     }
+
+    // tasklet
+//    @Bean
+//    public Job addressTaskletJob() {
+//        return jobBuilderFactory
+//                .get("addressTaskletJob")
+//                .incrementer(new RunIdIncrementer())
+//                .start(addressTaskletStep())
+//                .build();
+//    }
+//
+//    @Bean
+//    public Step addressTaskletStep() {
+//        return stepBuilderFactory.get("addressTaskletStep")
+//                                 .tasklet(addressTaskletHelper)
+//                                 .build();
+//    }
 }
