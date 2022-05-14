@@ -140,3 +140,6 @@
     * 多重処理はどうなっているの？
     * tomcat とか動いてるの？
     * AWS で動かすときは？
+
+* chunk size による performance
+  * https://stackoverflow.com/questions/8163582/spring-batch-steps-to-improve-performance
