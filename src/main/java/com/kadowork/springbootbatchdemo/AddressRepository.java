@@ -14,7 +14,7 @@ public class AddressRepository {
     public void create(Address address) {
         log.info("Address: {}", address.getId() + ": " + address.getPrefName() +
                                 address.getCityName() + address.getTownName());
-        jdbcTemplate.update("INSERT INTO address SET " +
+        jdbcTemplate.update("INSERT INTO address2 SET " +
                             "id = ?, " +
                             "prefCd = ?, " +
                             "cityCd = ?, " +
