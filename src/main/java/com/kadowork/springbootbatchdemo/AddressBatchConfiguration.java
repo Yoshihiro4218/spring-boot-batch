@@ -9,6 +9,7 @@ import org.springframework.batch.item.file.*;
 import org.springframework.batch.item.file.mapping.*;
 import org.springframework.batch.item.file.transform.*;
 import org.springframework.context.annotation.*;
+import org.springframework.core.env.*;
 import org.springframework.core.io.*;
 
 @Configuration
@@ -19,6 +20,7 @@ public class AddressBatchConfiguration {
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
     private final AddressTaskletHelper addressTaskletHelper;
+    private final Environment environment;
 
     private static final String CSV_FILE_PATH = "zenkoku.csv";
 
@@ -34,8 +36,10 @@ public class AddressBatchConfiguration {
 
     @Bean
     public Step addressChunkStep() {
+        int chunkSize = Integer.parseInt(environment.getProperty("chunk", "1000"));
+        log.info("[ChunkSize] {}", chunkSize);
         return stepBuilderFactory.get("step1")
-                                 .<Address, Address>chunk(2500)
+                                 .<Address, Address>chunk(chunkSize)
                                  .reader(addressChunkReader())
                                  .processor(addressChunkProcessor())
                                  .writer(addressChunkWriter())
