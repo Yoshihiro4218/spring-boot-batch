@@ -59,6 +59,5 @@ public class AddressRepository {
                             address.getOfficeKana(),
                             address.getOfficeAddress(),
                             address.getNewId());
-        jdbcTemplate.execute("DELETE FROM address2;");
     }
 }
