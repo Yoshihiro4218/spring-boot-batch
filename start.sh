@@ -6,6 +6,5 @@ for i in {1..10} ; do
     do
       echo ${var}
       bash run.sh $var
-      mysql -h localhost -P 3306 --protocol=tcp -u user -ppassword batch -e'DELETE FROM address2;'
     done
 done
