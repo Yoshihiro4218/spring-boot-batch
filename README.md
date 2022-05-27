@@ -150,12 +150,19 @@
 ![9](./img/9.png)
 ![10](./img/10.png)
 
+※ なお、
+
 ### できる限りの考察
 * xxx
 
 ![11](./img/11.png)
 ![12](./img/12.png)
 
+
+## ロールバック / 再実行
+* CommandLineJobRunner の `-restart` によるリスタート
+  * が、profile の機構が使いないなどの致命的な縛りがあるので微妙かも？
+  * https://qiita.com/kakasak/items/81a2a91ac22a8a05ee2a
 
 ## TODO 事項など
 * batch 用のテーブル作成は手動で作らないといけませんでしたが...
