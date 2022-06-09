@@ -16,6 +16,7 @@ phases:
       - $(aws ecr get-login --region ap-northeast-1 --no-include-email)
   build:
     commands:
+      - docker-compose up -d
       - echo "Building spring-boot-batch !"
       - mvn clean package
       - docker build -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/spring-boot-batch:$IMAGE_TAG .
