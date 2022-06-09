@@ -19,9 +19,9 @@ phases:
       - docker-compose up -d
       - echo "Building spring-boot-batch !"
       - mvn clean package
-      - docker build -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/spring-boot-batch:$IMAGE_TAG .
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/spring-boot-batch:$IMAGE_TAG
+      - docker build -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/spring-boot-batch-demo:$IMAGE_TAG .
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/spring-boot-batch-demo:$IMAGE_TAG
       - cd $BASE_DIR
-      - printf '[{"name":"spring-boot-batch","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/spring-boot-batch:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"spring-boot-batch","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/spring-boot-batch-demo:$IMAGE_TAG > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
